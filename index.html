@@ -1,148 +1,771 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edima Bassey | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <style>
-    html {
-      scroll-behavior: smooth;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edima Bassey — techma</title>
+<meta name="description" content="Edima Bassey (techma) — full-stack builder working across AI systems, software engineering, and cybersecurity. Based in Nigeria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #12161a;
+    --panel: #1a2027;
+    --panel-raised: #212831;
+    --line: #2c343d;
+    --line-soft: #232a32;
+    --text: #e7e5df;
+    --text-dim: #99a2ab;
+    --text-faint: #5c6670;
+    --amber: #d9a441;
+    --amber-dim: #8a6b2e;
+    --teal: #4f9a94;
+    --teal-dim: #35625e;
+    --red: #c1554a;
+    --gray: #5c6670;
+
+    --font-display: 'JetBrains Mono', monospace;
+    --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+
+    --radius: 3px;
+    --max: 1040px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Share Tech Mono', monospace;
-      background-color: #0e0e0e;
-      color: #f1f1f1;
-      line-height: 1.6;
-      padding-top: 60px;
-    }
-    header {
-      background-color: #111;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.3rem;
-      animation: fadeInDown 1s ease-out;
-    }
-    .section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1.5rem;
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      animation: fadeIn 1s ease-in-out;
-    }
-    .section h2 {
-      color: #00ffd5;
-      border-bottom: 1px solid #444;
-      padding-bottom: 0.3rem;
-    }
-    .icons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
-    .icons img {
-      height: 50px;
-      max-width: 100%;
-      transition: transform 0.3s ease;
-    }
-    .icons img:hover {
-      transform: scale(1.1);
-    }
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #888;
-    }
-    a {
-      color: #00ffd5;
-      text-decoration: none;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    @media screen and (max-width: 768px) {
-      body {
-        padding: 10px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      .section {
-        padding: 1rem;
-      }
-      .icons {
-        gap: 0.5rem;
-      }
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 3px;
+  }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(18, 22, 26, 0.88);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .nav-brand {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-brand .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 8px var(--teal);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .nav-links a { text-decoration: none; transition: color 0.15s ease; }
+  .nav-links a:hover { color: var(--amber); }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 96px 0 72px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-eyebrow {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--teal);
+    letter-spacing: 0.04em;
+    margin-bottom: 20px;
+    min-height: 20px;
+  }
+  .hero-eyebrow .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background: var(--teal);
+    margin-left: 2px;
+    vertical-align: -2px;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  h1.hero-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    max-width: 780px;
+  }
+  h1.hero-title .accent { color: var(--amber); }
+  .hero-sub {
+    margin-top: 22px;
+    font-size: 19px;
+    color: var(--text-dim);
+    max-width: 560px;
+    line-height: 1.65;
+  }
+  .hero-meta {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+  .hero-actions {
+    margin-top: 36px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 13px 22px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    border: 1px solid transparent;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary {
+    background: var(--amber);
+    color: #14181c;
+  }
+  .btn-primary:hover { background: #e8b656; }
+  .btn-ghost {
+    border-color: var(--line);
+    color: var(--text);
+  }
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  .module-label {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .module-label::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--amber-dim);
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 20px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 760px) {
+    .about-grid { grid-template-columns: 1fr; }
+  }
+  .about-body p { color: var(--text-dim); margin-bottom: 16px; max-width: 62ch; }
+  .about-body strong { color: var(--text); font-weight: 600; }
+
+  .about-panel {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+  }
+  .about-panel h3 {
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--text-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .about-panel ul { list-style: none; }
+  .about-panel li {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-display);
+    font-size: 13.5px;
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--line);
+    color: var(--text-dim);
+  }
+  .about-panel li:last-child { border-bottom: none; }
+  .about-panel li span:last-child { color: var(--text); }
+
+  /* ---------- STACK ---------- */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .stack-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .stack-card h4 {
+    font-family: var(--font-display);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .stack-card p {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 28px;
+    padding: 28px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  .project:first-of-type { border-top: none; }
+  @media (max-width: 700px) {
+    .project { grid-template-columns: 1fr; gap: 12px; }
+  }
+  .project-meta {
+    font-family: var(--font-display);
+  }
+  .project-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 4px 9px;
+    border-radius: 12px;
+    border: 1px solid;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+  .project-status .led {
+    width: 6px; height: 6px; border-radius: 50%;
+  }
+  .status-building { color: var(--amber); border-color: var(--amber-dim); }
+  .status-building .led { background: var(--amber); box-shadow: 0 0 6px var(--amber); animation: pulse 1.6s ease-in-out infinite; }
+  .status-deployed { color: var(--teal); border-color: var(--teal-dim); }
+  .status-deployed .led { background: var(--teal); box-shadow: 0 0 6px var(--teal); }
+  .status-active { color: var(--teal); border-color: var(--teal-dim); }
+  .status-active .led { background: var(--teal); box-shadow: 0 0 6px var(--teal); animation: pulse 1.6s ease-in-out infinite; }
+  .status-archived { color: var(--gray); border-color: var(--line); }
+  .status-archived .led { background: var(--gray); }
+  .status-concept { color: var(--red); border-color: #6b3c37; }
+  .status-concept .led { background: var(--red); }
+
+  .project-year {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+  .project-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    margin-bottom: 8px;
+  }
+  .project-desc {
+    color: var(--text-dim);
+    max-width: 62ch;
+    margin-bottom: 12px;
+  }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag {
+    font-family: var(--font-display);
+    font-size: 11px;
+    color: var(--text-faint);
+    border: 1px solid var(--line);
+    padding: 3px 9px;
+    border-radius: 3px;
+  }
+
+  /* ---------- STATUS PANEL (signature) ---------- */
+  .console {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .console-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--line);
+    background: var(--panel-raised);
+  }
+  .console-bar .chip { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+  .console-bar .chip:nth-child(1) { background: var(--red); }
+  .console-bar .chip:nth-child(2) { background: var(--amber); }
+  .console-bar .chip:nth-child(3) { background: var(--teal); }
+  .console-bar span.title {
+    margin-left: 8px;
+    font-family: var(--font-display);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+  .console-body { padding: 4px 0; }
+  .console-row {
+    display: grid;
+    grid-template-columns: 160px 110px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 20px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .console-row:last-child { border-bottom: none; }
+  @media (max-width: 640px) {
+    .console-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 16px; }
+  }
+  .console-row .proc { color: var(--text); font-weight: 600; }
+  .console-row .note { color: var(--text-faint); font-family: var(--font-body); font-size: 13px; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 700px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+  .contact-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    text-decoration: none;
+    display: block;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .contact-card:hover { border-color: var(--amber); transform: translateY(-2px); }
+  .contact-card .k {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 8px;
+  }
+  .contact-card .v {
+    font-family: var(--font-display);
+    font-size: 16px;
+    color: var(--text);
+    word-break: break-word;
+  }
+
+  footer {
+    padding: 32px 0 48px;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Edima Bassey</h1>
-    <p>"Learn from your mistakes and have patience."</p>
-  </header>  <section class="section">
-    <h2>About Me</h2>
-    <p>I’m a young developer from Nigeria passionate about AI, software development, and intelligent systems. I explore both software and hardware, using platforms like Arduino, Raspberry Pi, and Termux. My goal is to use tech to make a meaningful impact on the world — from military systems to smart assistants like Jarvis.</p>
-  </section>  <section class="section">
-    <h2>Ongoing Projects</h2>
-    <ul>
-      <li>🤖 <strong>Sally</strong> – an AI assistant built in Python via Termux</li>
-      <li>🚛 <strong>Tegy Mobile</strong> – a prototype military surveillance truck for school</li>
-      <li>🌐 <strong>WENET</strong> – a local educational social media platform (We Connect)</li>
-    </ul>
-  </section>  <section class="section">
-    <h2>Skills & Technologies</h2>
-    <p>I work with a variety of programming languages and tools:</p>
-    <div class="icons">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pycharm/pycharm-original.svg" alt="PyCharm" />
-      <img src="https://www.google.com/search?client=ms-android-huawei-rev1&sca_esv=ea7b27f3c7f5bbf6&sxsrf=AE3TifNuegJ9_VHRq95FawIgei3ldM4xtw:1749579963733&udm=2&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZud1z6kQpMfoEdCJxnpm_3W-pLdZZVzNY_L9_ftx08kwv-_tUbRt8pOUS8_MjaceH5Ffy-dcN-9exBnK-r4p9U5FZGwurlBIKb3t6bgXxn3LBfb3Em4V0E7us8s12vPvv_vTxf8cFJjdknaJSr4AuGvhBCHMEsTbLh2ljoLmM8ZhZqf1p2f4GVHweoatYIZU5ES6nMg&q=code+blocks+download+for+pc&sa=X&ved=2ahUKEwiyk_qhveeNAxXyV6QEHankB-YQtKgLegQIGRAB&biw=360&bih=640&dpr=2#sv=CAMSwgQalQQK7wEKuQEStgEKd0FMa3Rfdkg4ZUlzRUJCd3RWNTdMNnBVVEttZWRhbTBqU0VLYTFUVG9TbGVDZHFRNHUxSVlEV3JWN0RaWHJfRnhVQ0tyX1FyMU5FS3hvdFhzZ19XME44cXdhbWVjS3BjeXZQT2JBMWRMdmFjbG1VckV0aEpSS3pBEhdVM2xJYUpMRkhQT2xoYklQbl82eHFBNBoiQUZNQUdHcjRTcGk4WWo3dzF4REJnZFV3WWdkam5JQ2JQdxIDODQ5GgEzIiAKAXESG2NvZGUgYmxvY2tzIGRvd25sb2FkIGZvciBwYyIHCgN0YnMSABKOAgrPARLMAQqMAUFMa3Rfdkg2Y29yMUV2WE1CUVBSdEcxXzhDTFlhT09IRmgzVFFtSGgyWHJiUlhEWG96THZlX3FWdVlmX2RnWkVRcWkzamxkSW9IbUN0X3hhUUhwUXV6YmhtSnJDRTFxdTl5WmNzclRVaXkxMEh1dE1Ga0tYeGlPd2JPcVFRYVRlTWtEYnNmTUFoc1pKEhdVM2xJYUpMRkhQT2xoYklQbl82eHFBNBoiQUZNQUdHcXh2RS16Z3pIVERnVHZIWWxnVnFmbFAtcVNUdxIENDY5OBoBMyIYCgZpbWdkaWkSDmpjbTMycTlBLVBGc29NIhcKBWRvY2lkEg5iNk04VkNCaGdaUHpCTSoQZS1qY20zMnE5QS1QRnNvTSAEKiQKDmxDRGZFeFRxUnFrWWNNEhBlLWpjbTMycTlBLVBGc29NGAAwARgHIMTqms0JMAFAAg" alt="CodeBlocks" />
-      <img src="https://www.svgrepo.com/show/504948/termux.svg" alt="Termux" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="Arduino" />
-      <img src="https://upload.wikimedia.org/wikipedia/en/c/cb/Raspberry_Pi_Logo.svg" alt="Raspberry Pi" />
-      <img src="https://www.svgrepo.com/show/504776/pydroid.svg" alt="Pydroid 3" />
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><span class="dot"></span> techma</div>
+    <nav class="nav-links">
+      <a href="#about">about</a>
+      <a href="#stack">stack</a>
+      <a href="#projects">projects</a>
+      <a href="#status">status</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="hero-eyebrow" id="typeTarget">&gt; whoami<span class="cursor"></span></div>
+    <h1 class="hero-title">Edima Bassey <span class="accent">/ techma</span></h1>
+    <p class="hero-sub">I build the systems I wish existed — full-stack apps, local-first AI, and the odd surveillance robot on the side. Based in Nigeria, working independently, shipping from scratch.</p>
+    <div class="hero-meta">
+      <span>📍 Nigeria</span>
+      <span>⌁ Full-stack / AI systems / Cybersecurity</span>
+      <span>⌘ Offline-first by preference</span>
     </div>
-  </section>  <section class="section">
-    <h2>Achievements</h2>
-    <p>🎖️ I was part of the team that represented NNSS Calabar at the Chief of Naval Staff STEM, Quiz & Debate Competition (2025/2026) against NNSS Borokiri.</p>
-  </section>  <section class="section">
-    <h2>My Vision</h2>
-    <p>I’m inspired by sci-fi movies and stories about intelligent technology. I hope to contribute to the future of AI by building machines that can understand, learn, and assist — especially in military, security, and education systems.</p>
-  </section>  <section class="section">
-    <h2>How I Work</h2>
-    <p>I build both independently and in teams. I enjoy collaborating and also working solo when experimenting with new tools or concepts. Whether I’m wiring hardware or designing systems, I always aim to build with purpose.</p>
-  </section>  <section class="section">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:belovedbassey4@gmail.com">belovedbassey4@gmail.com</a></p>
-    <p>Phone: <a href="tel:+2347078287176">+2347078287176</a></p>
-    <p>GitHub: <a href="https://www.github.com/techma2004" target="_blank">www.github.com/techma2004</a></p>
-  </section>  <footer>
-    <p>Edima Bassey | © 2025</p>
-  </footer>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projects">View the work</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="module-label">01 · about</div>
+    <div class="about-grid">
+      <div class="about-body reveal">
+        <p><strong>I learn by building complete systems, not by reading about them.</strong> That's shaped everything from a school management portal used by real students and teachers, to a private messaging platform built from a single Flask file, to an AI assistant I'm currently growing into something closer to a real operating layer than an app.</p>
+        <p>I care about software that runs <strong>where the infrastructure is imperfect</strong> — patchy power, patchy networks, budget hardware. That's not a constraint I work around, it's a design principle: local execution, offline capability, and lightweight footprints come first, cloud dependence comes second.</p>
+        <p>Recently graduated and now working independently across the stack — backend, frontend, systems, and increasingly security. Currently deep in cybersecurity self-study alongside active project work.</p>
+      </div>
+      <div class="about-panel reveal">
+        <h3>Working style</h3>
+        <ul>
+          <li><span>Approach</span><span>Build first, theorize after</span></li>
+          <li><span>Preference</span><span>Local / offline-first</span></li>
+          <li><span>Scope</span><span>Full-stack + systems</span></li>
+          <li><span>Environment</span><span>Linux + Termux/Android</span></li>
+          <li><span>Currently</span><span>Sally Station, cyber roadmap</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="module-label">02 · stack</div>
+    <h2 class="section-title">Languages &amp; tools</h2>
+    <div class="stack-grid">
+      <div class="stack-card reveal">
+        <h4>Languages</h4>
+        <p>Python, Kotlin, Java, C++, JavaScript, Bash, Rust</p>
+      </div>
+      <div class="stack-card reveal">
+        <h4>Backend</h4>
+        <p>Django + Channels, Flask, PocketBase, WebSockets</p>
+      </div>
+      <div class="stack-card reveal">
+        <h4>AI / ML</h4>
+        <p>llama.cpp, whisper.cpp, LoRA fine-tuning (Unsloth), local inference on Qwen &amp; Gemma models</p>
+      </div>
+      <div class="stack-card reveal">
+        <h4>Systems &amp; environments</h4>
+        <p>Debian Linux, Termux/Android, VNC + XFCE4, MCP servers, device automation</p>
+      </div>
+      <div class="stack-card reveal">
+        <h4>Security</h4>
+        <p>Self-taught ethical hacking track — PortSwigger, HackTheBox, TCM Security</p>
+      </div>
+      <div class="stack-card reveal">
+        <h4>Other</h4>
+        <p>Rust/Dioxus, PyQt6 + OpenGL/GLSL, Chaquopy, REST &amp; WebSocket APIs</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="module-label">03 · projects</div>
+    <h2 class="section-title">Selected work</h2>
+
+    <div class="project reveal">
+      <div class="project-meta">
+        <span class="project-status status-building"><span class="led"></span>Building</span>
+        <span class="project-year">2025 — present</span>
+      </div>
+      <div>
+        <div class="project-title">Sally Station</div>
+        <p class="project-desc">A JARVIS-style local AI assistant designed to run entirely offline: a PC-based "Station OS" paired with an Android companion app, aiming for a synced "JARVIS MODE" across both. Currently building the macro/protocol system and mood state machine that downstream features — avatar expression, voice tone — depend on.</p>
+        <div class="project-tags">
+          <span class="tag">Django + Channels</span>
+          <span class="tag">llama.cpp / Qwen2.5-Coder</span>
+          <span class="tag">whisper.cpp</span>
+          <span class="tag">PyQt6 + GLSL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div class="project-meta">
+        <span class="project-status status-deployed"><span class="led"></span>Deployed</span>
+        <span class="project-year">2024 — 2025</span>
+      </div>
+      <div>
+        <div class="project-title">NNSS Calabar</div>
+        <p class="project-desc">A multi-role school management portal built for a naval secondary school — five user roles, six arms, WAEC grading, and a five-component score structure. Rebuilt on PocketBase for the final version and handed off to the school's Cisco teacher for institutional use.</p>
+        <div class="project-tags">
+          <span class="tag">PocketBase</span>
+          <span class="tag">Node.js (v1)</span>
+          <span class="tag">Role-based access</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div class="project-meta">
+        <span class="project-status status-archived"><span class="led"></span>Prototype</span>
+        <span class="project-year">2023 — 2024</span>
+      </div>
+      <div>
+        <div class="project-title">WENET</div>
+        <p class="project-desc">A private WhatsApp/Telegram-style messaging platform, built as a single-file Flask app with real-time messaging, contact discovery via phone matching and QR codes, and message-request flows. An earlier build explored a "WENET Pay" peer-to-peer payments concept and an admin panel with RBAC and AI moderation.</p>
+        <div class="project-tags">
+          <span class="tag">Flask</span>
+          <span class="tag">Real-time messaging</span>
+          <span class="tag">RBAC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div class="project-meta">
+        <span class="project-status status-active"><span class="led"></span>Active</span>
+        <span class="project-year">2024</span>
+      </div>
+      <div>
+        <div class="project-title">Cross-platform browser shell</div>
+        <p class="project-desc">A lightweight Rust/Dioxus browser using the system webview (wry) to target both desktop and Android from one codebase — tab management, URL normalization, and DuckDuckGo fallback routing.</p>
+        <div class="project-tags">
+          <span class="tag">Rust</span>
+          <span class="tag">Dioxus</span>
+          <span class="tag">wry</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div class="project-meta">
+        <span class="project-status status-concept"><span class="led"></span>Concept</span>
+        <span class="project-year">Ongoing</span>
+      </div>
+      <div>
+        <div class="project-title">Tegy Mobile</div>
+        <p class="project-desc">A surveillance/remote-control vehicle concept — wireless camera, night vision, electric drive, shock absorption — with autonomous navigation, GPS, and obstacle avoidance planned as future upgrades. The hardware side of the same "build the systems I wish existed" instinct.</p>
+        <div class="project-tags">
+          <span class="tag">Robotics</span>
+          <span class="tag">Electronics</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="status">
+    <div class="module-label">04 · status</div>
+    <h2 class="section-title">Live systems</h2>
+    <div class="console reveal">
+      <div class="console-bar">
+        <span class="chip"></span><span class="chip"></span><span class="chip"></span>
+        <span class="title">techma@systems — status</span>
+      </div>
+      <div class="console-body">
+        <div class="console-row">
+          <span class="proc">sally_station</span>
+          <span class="project-status status-building"><span class="led"></span>building</span>
+          <span class="note">macro/protocol + mood engine in dev</span>
+        </div>
+        <div class="console-row">
+          <span class="proc">nnss_calabar</span>
+          <span class="project-status status-deployed"><span class="led"></span>deployed</span>
+          <span class="note">handed off, live at the school</span>
+        </div>
+        <div class="console-row">
+          <span class="proc">wenet</span>
+          <span class="project-status status-archived"><span class="led"></span>archived</span>
+          <span class="note">v2 prototype complete</span>
+        </div>
+        <div class="console-row">
+          <span class="proc">rust_browser</span>
+          <span class="project-status status-active"><span class="led"></span>active</span>
+          <span class="note">cross-platform shell, ongoing</span>
+        </div>
+        <div class="console-row">
+          <span class="proc">tegy_mobile</span>
+          <span class="project-status status-concept"><span class="led"></span>concept</span>
+          <span class="note">hardware design phase</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="module-label">05 · contact</div>
+    <h2 class="section-title">Let's talk</h2>
+    <p style="color: var(--text-dim); max-width: 56ch; margin-bottom: 28px;">Open to full-stack, AI/ML, or systems-focused roles and collaborations. Reach out directly:</p>
+    <div class="contact-grid">
+      <a class="contact-card reveal" href="mailto:belovedbassey4@gmail.com">
+        <div class="k">Email</div>
+        <div class="v">belovedbassey4@gmail.com</div>
+      </a>
+      <a class="contact-card reveal" href="tel:+2347078287176">
+        <div class="k">Phone</div>
+        <div class="v">+234 707 828 7176</div>
+      </a>
+      <a class="contact-card reveal" href="https://github.com/techma2004" target="_blank" rel="noopener noreferrer">
+        <div class="k">GitHub</div>
+        <div class="v">github.com/techma2004</div>
+      </a>
+      <a class="contact-card reveal" href="mailto:belovedbassey4@gmail.com?subject=Let%27s%20work%20together">
+        <div class="k">Quick action</div>
+        <div class="v">Send a message →</div>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  built by techma · Nigeria · <span id="year"></span>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Boot-sequence typing effect in hero eyebrow
+  (function() {
+    var target = document.getElementById('typeTarget');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+    var lines = ['> whoami', '> edima bassey — techma', '> role: full-stack / ai systems / security', '> status: available'];
+    var lineIdx = 0, charIdx = 0;
+    var cursor = '<span class="cursor"></span>';
+
+    function type() {
+      if (lineIdx >= lines.length) {
+        setTimeout(function() {
+          lineIdx = 0; charIdx = 0;
+          type();
+        }, 3200);
+        return;
+      }
+      var line = lines[lineIdx];
+      target.innerHTML = line.slice(0, charIdx) + cursor;
+      if (charIdx < line.length) {
+        charIdx++;
+        setTimeout(type, 32);
+      } else {
+        setTimeout(function() {
+          lineIdx++;
+          charIdx = 0;
+          type();
+        }, 1100);
+      }
+    }
+    type();
+  })();
+
+  // Scroll reveal
+  (function() {
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(function(el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function(el) { io.observe(el); });
+  })();
+</script>
+
 </body>
 </html>
