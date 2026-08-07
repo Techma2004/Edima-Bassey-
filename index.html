@@ -3,37 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edima Bassey — techma</title>
-<meta name="description" content="Edima Bassey (techma) — full-stack builder working across AI systems, software engineering, and cybersecurity. Based in Nigeria.">
+<title>Edima Bassey — Software Engineer</title>
+<meta name="description" content="Edima Bassey — full-stack software engineer working across AI systems, backend architecture, and security. Based in Nigeria.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #12161a;
-    --panel: #1a2027;
-    --panel-raised: #212831;
-    --line: #2c343d;
-    --line-soft: #232a32;
-    --text: #e7e5df;
-    --text-dim: #99a2ab;
-    --text-faint: #5c6670;
-    --amber: #d9a441;
-    --amber-dim: #8a6b2e;
-    --teal: #4f9a94;
-    --teal-dim: #35625e;
-    --red: #c1554a;
-    --gray: #5c6670;
+    --ink: #14181f;
+    --ink-raised: #1b212a;
+    --ink-raised-2: #212834;
+    --line: #2c3542;
+    --line-soft: #232a35;
+    --text: #ece7db;
+    --text-dim: #ada799;
+    --text-faint: #726c60;
+    --brass: #c39b62;
+    --brass-soft: #8a6f45;
+    --wine: #a3564d;
+    --wine-soft: #5f3733;
 
-    --font-display: 'JetBrains Mono', monospace;
-    --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+    --font-display: 'Source Serif 4', Georgia, serif;
+    --font-body: 'Work Sans', -apple-system, sans-serif;
 
-    --radius: 3px;
-    --max: 1040px;
+    --measure: 62ch;
+    --max: 1000px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   @media (prefers-reduced-motion: reduce) {
@@ -47,430 +44,319 @@
   }
 
   body {
-    background: var(--bg);
+    background: var(--ink);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 17px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--line-soft) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
-    background-size: 64px 64px;
-    opacity: 0.35;
-    pointer-events: none;
-    z-index: 0;
-  }
-
   a { color: inherit; }
-  :focus-visible {
-    outline: 2px solid var(--amber);
-    outline-offset: 3px;
-  }
+  :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 
-  .wrap {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 0 28px;
-    position: relative;
-    z-index: 1;
-  }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
 
   /* ---------- NAV ---------- */
   header.nav {
     position: sticky;
     top: 0;
     z-index: 20;
-    background: rgba(18, 22, 26, 0.88);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--line);
+    background: rgba(20, 24, 31, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-soft);
   }
   .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 28px;
+    padding: 20px 32px;
     max-width: var(--max);
     margin: 0 auto;
   }
-  .nav-brand {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 0.02em;
+  .monogram {
+    width: 38px; height: 38px;
+    border: 1px solid var(--brass-soft);
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 15px;
+    color: var(--brass);
+    flex-shrink: 0;
   }
-  .nav-brand .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--teal);
-    box-shadow: 0 0 8px var(--teal);
-    animation: pulse 2.4s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.35; }
+  .nav-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 16px;
+    letter-spacing: 0.01em;
   }
   .nav-links {
     display: flex;
-    gap: 28px;
-    font-family: var(--font-display);
-    font-size: 13px;
+    gap: 32px;
+    font-size: 14px;
     color: var(--text-dim);
   }
   .nav-links a { text-decoration: none; transition: color 0.15s ease; }
-  .nav-links a:hover { color: var(--amber); }
-  @media (max-width: 640px) {
-    .nav-links { display: none; }
-  }
+  .nav-links a:hover { color: var(--brass); }
+  @media (max-width: 640px) { .nav-links { display: none; } }
 
   /* ---------- HERO ---------- */
-  .hero {
-    padding: 96px 0 72px;
-    border-bottom: 1px solid var(--line);
-  }
-  .hero-eyebrow {
-    font-family: var(--font-display);
-    font-size: 13px;
-    color: var(--teal);
+  .hero { padding: 100px 0 88px; }
+  .hero-kicker {
+    font-size: 14px;
+    color: var(--brass);
     letter-spacing: 0.04em;
-    margin-bottom: 20px;
-    min-height: 20px;
-  }
-  .hero-eyebrow .cursor {
-    display: inline-block;
-    width: 8px;
-    height: 15px;
-    background: var(--teal);
-    margin-left: 2px;
-    vertical-align: -2px;
-    animation: blink 1s step-end infinite;
-  }
-  @keyframes blink {
-    0%, 49% { opacity: 1; }
-    50%, 100% { opacity: 0; }
+    margin-bottom: 22px;
   }
   h1.hero-title {
     font-family: var(--font-display);
-    font-weight: 800;
-    font-size: clamp(2.4rem, 6vw, 4.4rem);
-    line-height: 1.04;
-    letter-spacing: -0.01em;
-    max-width: 780px;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 5.4vw, 3.6rem);
+    line-height: 1.18;
+    max-width: 720px;
+    letter-spacing: -0.005em;
   }
-  h1.hero-title .accent { color: var(--amber); }
+  .hero-title em {
+    font-style: italic;
+    color: var(--brass);
+  }
   .hero-sub {
-    margin-top: 22px;
-    font-size: 19px;
+    margin-top: 26px;
+    font-size: 18.5px;
     color: var(--text-dim);
-    max-width: 560px;
-    line-height: 1.65;
+    max-width: 58ch;
+    line-height: 1.75;
   }
   .hero-meta {
-    margin-top: 28px;
+    margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 14px;
-    font-family: var(--font-display);
-    font-size: 13px;
+    gap: 8px 22px;
+    font-size: 14.5px;
     color: var(--text-faint);
   }
-  .hero-meta span { display: flex; align-items: center; gap: 6px; }
   .hero-actions {
-    margin-top: 36px;
+    margin-top: 40px;
     display: flex;
-    gap: 14px;
+    gap: 16px;
     flex-wrap: wrap;
   }
   .btn {
-    font-family: var(--font-display);
-    font-size: 13px;
+    font-size: 14.5px;
     font-weight: 600;
-    letter-spacing: 0.02em;
-    padding: 13px 22px;
-    border-radius: var(--radius);
+    padding: 14px 26px;
+    border-radius: 2px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     border: 1px solid transparent;
   }
   .btn:hover { transform: translateY(-1px); }
-  .btn-primary {
-    background: var(--amber);
-    color: #14181c;
-  }
-  .btn-primary:hover { background: #e8b656; }
-  .btn-ghost {
-    border-color: var(--line);
-    color: var(--text);
-  }
-  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+  .btn-primary { background: var(--brass); color: #14181f; }
+  .btn-primary:hover { background: #d6ac74; }
+  .btn-ghost { border-color: var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--brass); color: var(--brass); }
 
   /* ---------- SECTION SCAFFOLD ---------- */
-  section { padding: 72px 0; border-bottom: 1px solid var(--line); }
-  section:last-of-type { border-bottom: none; }
+  section { padding: 84px 0; border-top: 1px solid var(--line-soft); }
 
-  .module-label {
-    font-family: var(--font-display);
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    color: var(--text-faint);
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .module-label::before {
-    content: '';
-    width: 20px;
-    height: 1px;
-    background: var(--amber-dim);
+    color: var(--text-faint);
+    margin-bottom: 22px;
   }
   .section-title {
     font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    margin-bottom: 28px;
+    max-width: 620px;
   }
 
   /* ---------- ABOUT ---------- */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 48px;
+  .about-body p {
+    color: var(--text-dim);
+    max-width: var(--measure);
+    margin-bottom: 20px;
+    font-size: 17.5px;
   }
-  @media (max-width: 760px) {
-    .about-grid { grid-template-columns: 1fr; }
-  }
-  .about-body p { color: var(--text-dim); margin-bottom: 16px; max-width: 62ch; }
   .about-body strong { color: var(--text); font-weight: 600; }
 
-  .about-panel {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 22px 24px;
-  }
-  .about-panel h3 {
-    font-family: var(--font-display);
-    font-size: 13px;
-    color: var(--text-faint);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  .about-panel ul { list-style: none; }
-  .about-panel li {
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--font-display);
-    font-size: 13.5px;
-    padding: 9px 0;
-    border-bottom: 1px dashed var(--line);
-    color: var(--text-dim);
-  }
-  .about-panel li:last-child { border-bottom: none; }
-  .about-panel li span:last-child { color: var(--text); }
-
-  /* ---------- STACK ---------- */
-  .stack-grid {
+  .facts {
+    margin-top: 44px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 760px;
   }
-  .stack-card {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 18px 20px;
-  }
-  .stack-card h4 {
-    font-family: var(--font-display);
-    font-size: 12px;
+  @media (max-width: 700px) { .facts { grid-template-columns: 1fr 1fr; } }
+  .fact dt {
+    font-size: 12.5px;
     letter-spacing: 0.06em;
-    color: var(--teal);
     text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 6px;
+  }
+  .fact dd { font-family: var(--font-display); font-size: 17px; color: var(--text); }
+
+  /* ---------- PULL QUOTE ---------- */
+  .quote-section { border-top: 1px solid var(--line-soft); }
+  .quote-mark {
+    font-family: var(--font-display);
+    font-size: 64px;
+    color: var(--brass-soft);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  blockquote {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: italic;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    line-height: 1.5;
+    max-width: 760px;
+    color: var(--text);
+  }
+  .quote-attr {
+    margin-top: 22px;
+    font-size: 14.5px;
+    color: var(--text-faint);
+    font-style: normal;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1px;
+    background: var(--line-soft);
+    border: 1px solid var(--line-soft);
+  }
+  .skill-card { background: var(--ink); padding: 24px 26px; }
+  .skill-card h4 {
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    color: var(--brass);
     margin-bottom: 10px;
+    font-weight: 600;
   }
-  .stack-card p {
-    font-size: 14px;
-    color: var(--text-dim);
-    line-height: 1.55;
-  }
+  .skill-card p { font-size: 14.5px; color: var(--text-dim); line-height: 1.6; }
 
-  /* ---------- PROJECTS ---------- */
+  /* ---------- PROJECTS (case study rows) ---------- */
   .project {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 28px;
-    padding: 28px 0;
+    padding: 40px 0;
     border-top: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 36px;
   }
-  .project:first-of-type { border-top: none; }
-  @media (max-width: 700px) {
-    .project { grid-template-columns: 1fr; gap: 12px; }
+  .project:first-of-type { border-top: none; padding-top: 0; }
+  @media (max-width: 720px) {
+    .project { grid-template-columns: 1fr; gap: 14px; }
   }
-  .project-meta {
-    font-family: var(--font-display);
-  }
-  .project-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    padding: 4px 9px;
-    border-radius: 12px;
-    border: 1px solid;
-    text-transform: uppercase;
-    width: fit-content;
-  }
-  .project-status .led {
-    width: 6px; height: 6px; border-radius: 50%;
-  }
-  .status-building { color: var(--amber); border-color: var(--amber-dim); }
-  .status-building .led { background: var(--amber); box-shadow: 0 0 6px var(--amber); animation: pulse 1.6s ease-in-out infinite; }
-  .status-deployed { color: var(--teal); border-color: var(--teal-dim); }
-  .status-deployed .led { background: var(--teal); box-shadow: 0 0 6px var(--teal); }
-  .status-active { color: var(--teal); border-color: var(--teal-dim); }
-  .status-active .led { background: var(--teal); box-shadow: 0 0 6px var(--teal); animation: pulse 1.6s ease-in-out infinite; }
-  .status-archived { color: var(--gray); border-color: var(--line); }
-  .status-archived .led { background: var(--gray); }
-  .status-concept { color: var(--red); border-color: #6b3c37; }
-  .status-concept .led { background: var(--red); }
-
-  .project-year {
-    display: block;
-    margin-top: 10px;
-    font-size: 12px;
-    color: var(--text-faint);
+  .project-side {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   .project-title {
     font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 19px;
-    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.3;
   }
-  .project-desc {
-    color: var(--text-dim);
-    max-width: 62ch;
-    margin-bottom: 12px;
+  .project-period { font-size: 13.5px; color: var(--text-faint); }
+  .project-status {
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    color: var(--brass);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    width: fit-content;
   }
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  .project-status::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: currentColor;
   }
+  .project-status.dim { color: var(--text-faint); }
+
+  .project-desc { color: var(--text-dim); max-width: var(--measure); margin-bottom: 16px; font-size: 16px; }
+  .project-outcome {
+    font-size: 15px;
+    color: var(--text);
+    padding-left: 16px;
+    border-left: 2px solid var(--brass-soft);
+    margin-bottom: 16px;
+    max-width: var(--measure);
+  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 9px; }
   .tag {
-    font-family: var(--font-display);
-    font-size: 11px;
+    font-size: 12.5px;
     color: var(--text-faint);
     border: 1px solid var(--line);
-    padding: 3px 9px;
-    border-radius: 3px;
+    padding: 4px 11px;
+    border-radius: 20px;
   }
 
-  /* ---------- STATUS PANEL (signature) ---------- */
-  .console {
-    background: var(--panel);
+  /* ---------- NOW ---------- */
+  .now-card {
+    background: var(--ink-raised);
     border: 1px solid var(--line);
-    border-radius: var(--radius);
-    overflow: hidden;
+    padding: 34px 38px;
+    max-width: 720px;
   }
-  .console-bar {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    border-bottom: 1px solid var(--line);
-    background: var(--panel-raised);
-  }
-  .console-bar .chip { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
-  .console-bar .chip:nth-child(1) { background: var(--red); }
-  .console-bar .chip:nth-child(2) { background: var(--amber); }
-  .console-bar .chip:nth-child(3) { background: var(--teal); }
-  .console-bar span.title {
-    margin-left: 8px;
-    font-family: var(--font-display);
-    font-size: 12px;
-    color: var(--text-faint);
-  }
-  .console-body { padding: 4px 0; }
-  .console-row {
-    display: grid;
-    grid-template-columns: 160px 110px 1fr;
-    gap: 16px;
-    align-items: center;
-    padding: 12px 20px;
-    font-family: var(--font-display);
-    font-size: 13px;
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .console-row:last-child { border-bottom: none; }
-  @media (max-width: 640px) {
-    .console-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 16px; }
-  }
-  .console-row .proc { color: var(--text); font-weight: 600; }
-  .console-row .note { color: var(--text-faint); font-family: var(--font-body); font-size: 13px; }
+  .now-card p { color: var(--text-dim); font-size: 16.5px; margin-bottom: 14px; max-width: 60ch; }
+  .now-card p:last-child { margin-bottom: 0; }
+  .now-card strong { color: var(--text); font-weight: 600; }
 
   /* ---------- CONTACT ---------- */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
+  .contact-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 40px;
   }
-  @media (max-width: 700px) {
-    .contact-grid { grid-template-columns: 1fr; }
-  }
-  .contact-card {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    padding: 22px 24px;
+  .contact-lead p { color: var(--text-dim); max-width: 46ch; font-size: 17px; margin-top: 14px; }
+  .contact-list { display: flex; flex-direction: column; gap: 4px; }
+  .contact-list a {
+    font-family: var(--font-display);
+    font-size: 19px;
     text-decoration: none;
-    display: block;
-    transition: border-color 0.15s ease, transform 0.15s ease;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line-soft);
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    min-width: 320px;
+    transition: color 0.15s ease;
   }
-  .contact-card:hover { border-color: var(--amber); transform: translateY(-2px); }
-  .contact-card .k {
-    font-family: var(--font-display);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-faint);
-    margin-bottom: 8px;
-  }
-  .contact-card .v {
-    font-family: var(--font-display);
-    font-size: 16px;
-    color: var(--text);
-    word-break: break-word;
+  .contact-list a:hover { color: var(--brass); }
+  .contact-list a span.k { color: var(--text-faint); font-family: var(--font-body); font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; align-self: center; }
+  @media (max-width: 560px) {
+    .contact-list a { min-width: 0; flex-direction: column; gap: 4px; }
   }
 
   footer {
-    padding: 32px 0 48px;
+    padding: 40px 0 56px;
     text-align: center;
-    font-family: var(--font-display);
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-faint);
+    border-top: 1px solid var(--line-soft);
   }
 
-  .reveal {
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.in { opacity: 1; transform: translateY(0); }
 </style>
 </head>
@@ -478,163 +364,165 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="nav-brand"><span class="dot"></span> techma</div>
+    <div class="nav-name"><span class="monogram">EB</span> Edima Bassey</div>
     <nav class="nav-links">
-      <a href="#about">about</a>
-      <a href="#stack">stack</a>
-      <a href="#projects">projects</a>
-      <a href="#status">status</a>
-      <a href="#contact">contact</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap">
 
-  <section class="hero">
-    <div class="hero-eyebrow" id="typeTarget">&gt; whoami<span class="cursor"></span></div>
-    <h1 class="hero-title">Edima Bassey <span class="accent">/ techma</span></h1>
-    <p class="hero-sub">I build the systems I wish existed — full-stack apps, local-first AI, and the odd surveillance robot on the side. Based in Nigeria, working independently, shipping from scratch.</p>
+  <section class="hero" style="border-top: none;">
+    <div class="hero-kicker">Software Engineer · Nigeria</div>
+    <h1 class="hero-title">I build software that works <em>on its own terms</em> — offline, resilient, and built to last.</h1>
+    <p class="hero-sub">I'm a full-stack engineer working across backend systems, AI infrastructure, and security. I like taking on projects end to end — from architecture through to something people actually use — and I care more about software that holds up under real conditions than software that only works in a demo.</p>
     <div class="hero-meta">
-      <span>📍 Nigeria</span>
-      <span>⌁ Full-stack / AI systems / Cybersecurity</span>
-      <span>⌘ Offline-first by preference</span>
+      <span>Based in Nigeria</span>
+      <span>Full-stack · AI systems · Security</span>
+      <span>Open to new roles</span>
     </div>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#projects">View the work</a>
+      <a class="btn btn-primary" href="#work">See my work</a>
       <a class="btn btn-ghost" href="#contact">Get in touch</a>
     </div>
   </section>
 
   <section id="about">
-    <div class="module-label">01 · about</div>
-    <div class="about-grid">
-      <div class="about-body reveal">
-        <p><strong>I learn by building complete systems, not by reading about them.</strong> That's shaped everything from a school management portal used by real students and teachers, to a private messaging platform built from a single Flask file, to an AI assistant I'm currently growing into something closer to a real operating layer than an app.</p>
-        <p>I care about software that runs <strong>where the infrastructure is imperfect</strong> — patchy power, patchy networks, budget hardware. That's not a constraint I work around, it's a design principle: local execution, offline capability, and lightweight footprints come first, cloud dependence comes second.</p>
-        <p>Recently graduated and now working independently across the stack — backend, frontend, systems, and increasingly security. Currently deep in cybersecurity self-study alongside active project work.</p>
-      </div>
-      <div class="about-panel reveal">
-        <h3>Working style</h3>
-        <ul>
-          <li><span>Approach</span><span>Build first, theorize after</span></li>
-          <li><span>Preference</span><span>Local / offline-first</span></li>
-          <li><span>Scope</span><span>Full-stack + systems</span></li>
-          <li><span>Environment</span><span>Linux + Termux/Android</span></li>
-          <li><span>Currently</span><span>Sally Station, cyber roadmap</span></li>
-        </ul>
-      </div>
+    <div class="eyebrow">About</div>
+    <h2 class="section-title">A bit about how I got here.</h2>
+    <div class="about-body">
+      <p>I've always learned best by finishing things — not tutorials, not toy examples, complete systems that real people rely on. That habit is how a school in Calabar ended up running its student records on software I built myself, and it's why my current project isn't a chatbot demo but something closer to a full operating layer.</p>
+      <p>Working from Nigeria has shaped the way I build more than any framework choice has. Power isn't always reliable and bandwidth isn't always cheap, so <strong>I design for offline-first, local execution by default</strong> — not as a limitation to work around, but as a discipline that tends to produce better, leaner software anyway.</p>
+      <p>I recently graduated and now work independently, which means I own every part of what I build — the architecture decisions, the late debugging sessions, and the parts that are unglamorous but have to be right. I'm currently deepening my security background alongside my regular project work, because I want to understand the systems I build well enough to know how they break.</p>
     </div>
+    <dl class="facts">
+      <div class="fact"><dt>Location</dt><dd>Nigeria</dd></div>
+      <div class="fact"><dt>Focus</dt><dd>Full-stack &amp; AI systems</dd></div>
+      <div class="fact"><dt>Status</dt><dd>Open to work</dd></div>
+    </dl>
   </section>
 
-  <section id="stack">
-    <div class="module-label">02 · stack</div>
-    <h2 class="section-title">Languages &amp; tools</h2>
-    <div class="stack-grid">
-      <div class="stack-card reveal">
+  <section class="quote-section">
+    <div class="quote-mark">"</div>
+    <blockquote>I don't reach for a library until I understand what it's saving me from writing myself.</blockquote>
+    <div class="quote-attr">— a rule I try to hold myself to on every project</div>
+  </section>
+
+  <section id="skills">
+    <div class="eyebrow">Skills</div>
+    <h2 class="section-title">What I work with.</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
         <h4>Languages</h4>
         <p>Python, Kotlin, Java, C++, JavaScript, Bash, Rust</p>
       </div>
-      <div class="stack-card reveal">
+      <div class="skill-card">
         <h4>Backend</h4>
-        <p>Django + Channels, Flask, PocketBase, WebSockets</p>
+        <p>Django &amp; Channels, Flask, PocketBase, REST &amp; WebSocket APIs</p>
       </div>
-      <div class="stack-card reveal">
-        <h4>AI / ML</h4>
-        <p>llama.cpp, whisper.cpp, LoRA fine-tuning (Unsloth), local inference on Qwen &amp; Gemma models</p>
+      <div class="skill-card">
+        <h4>AI &amp; ML</h4>
+        <p>llama.cpp, whisper.cpp, local inference, LoRA fine-tuning with Unsloth</p>
       </div>
-      <div class="stack-card reveal">
-        <h4>Systems &amp; environments</h4>
-        <p>Debian Linux, Termux/Android, VNC + XFCE4, MCP servers, device automation</p>
+      <div class="skill-card">
+        <h4>Systems</h4>
+        <p>Linux (Debian), Android/Termux, device automation, MCP integrations</p>
       </div>
-      <div class="stack-card reveal">
+      <div class="skill-card">
         <h4>Security</h4>
-        <p>Self-taught ethical hacking track — PortSwigger, HackTheBox, TCM Security</p>
+        <p>Applied web security &amp; ethical hacking, studying via PortSwigger, HackTheBox, TCM Security</p>
       </div>
-      <div class="stack-card reveal">
+      <div class="skill-card">
         <h4>Other</h4>
-        <p>Rust/Dioxus, PyQt6 + OpenGL/GLSL, Chaquopy, REST &amp; WebSocket APIs</p>
+        <p>Rust/Dioxus, PyQt6 &amp; OpenGL, systems design, hardware/robotics prototyping</p>
       </div>
     </div>
   </section>
 
-  <section id="projects">
-    <div class="module-label">03 · projects</div>
-    <h2 class="section-title">Selected work</h2>
+  <section id="work">
+    <div class="eyebrow">Selected work</div>
+    <h2 class="section-title">A few things I've built end to end.</h2>
 
     <div class="project reveal">
-      <div class="project-meta">
-        <span class="project-status status-building"><span class="led"></span>Building</span>
-        <span class="project-year">2025 — present</span>
+      <div class="project-side">
+        <div class="project-title">Sally Station</div>
+        <span class="project-status">In development</span>
+        <span class="project-period">2025 — present</span>
       </div>
       <div>
-        <div class="project-title">Sally Station</div>
-        <p class="project-desc">A JARVIS-style local AI assistant designed to run entirely offline: a PC-based "Station OS" paired with an Android companion app, aiming for a synced "JARVIS MODE" across both. Currently building the macro/protocol system and mood state machine that downstream features — avatar expression, voice tone — depend on.</p>
+        <p class="project-desc">A local, offline-capable AI assistant designed as a full "Station OS" for desktop, paired with a companion Android app — built around the idea that a personal assistant shouldn't require a constant connection to someone else's server.</p>
+        <p class="project-outcome">Currently designing the macro/protocol system and mood state machine that the assistant's expressive features — voice tone, avatar behavior — will be built on top of.</p>
         <div class="project-tags">
           <span class="tag">Django + Channels</span>
-          <span class="tag">llama.cpp / Qwen2.5-Coder</span>
+          <span class="tag">llama.cpp</span>
           <span class="tag">whisper.cpp</span>
-          <span class="tag">PyQt6 + GLSL</span>
+          <span class="tag">PyQt6 / OpenGL</span>
         </div>
       </div>
     </div>
 
     <div class="project reveal">
-      <div class="project-meta">
-        <span class="project-status status-deployed"><span class="led"></span>Deployed</span>
-        <span class="project-year">2024 — 2025</span>
+      <div class="project-side">
+        <div class="project-title">NNSS Calabar</div>
+        <span class="project-status dim">Deployed</span>
+        <span class="project-period">2024 — 2025</span>
       </div>
       <div>
-        <div class="project-title">NNSS Calabar</div>
-        <p class="project-desc">A multi-role school management portal built for a naval secondary school — five user roles, six arms, WAEC grading, and a five-component score structure. Rebuilt on PocketBase for the final version and handed off to the school's Cisco teacher for institutional use.</p>
+        <p class="project-desc">A school management portal built for a naval secondary school, handling result processing and administration across five user roles and six houses, with WAEC-standard grading built in.</p>
+        <p class="project-outcome">Now in active use at the school and handed off to a member of staff to maintain going forward.</p>
         <div class="project-tags">
           <span class="tag">PocketBase</span>
-          <span class="tag">Node.js (v1)</span>
           <span class="tag">Role-based access</span>
+          <span class="tag">Grading systems</span>
         </div>
       </div>
     </div>
 
     <div class="project reveal">
-      <div class="project-meta">
-        <span class="project-status status-archived"><span class="led"></span>Prototype</span>
-        <span class="project-year">2023 — 2024</span>
+      <div class="project-side">
+        <div class="project-title">WENET</div>
+        <span class="project-status dim">Prototype</span>
+        <span class="project-period">2023 — 2024</span>
       </div>
       <div>
-        <div class="project-title">WENET</div>
-        <p class="project-desc">A private WhatsApp/Telegram-style messaging platform, built as a single-file Flask app with real-time messaging, contact discovery via phone matching and QR codes, and message-request flows. An earlier build explored a "WENET Pay" peer-to-peer payments concept and an admin panel with RBAC and AI moderation.</p>
+        <p class="project-desc">A private messaging platform built solo from a single Flask application — real-time chat, contact discovery through phone matching and QR codes, and a message-request flow to keep conversations consent-based.</p>
+        <p class="project-outcome">A later version explored peer-to-peer payments and an admin panel with role-based access and AI-assisted moderation.</p>
         <div class="project-tags">
           <span class="tag">Flask</span>
           <span class="tag">Real-time messaging</span>
-          <span class="tag">RBAC</span>
         </div>
       </div>
     </div>
 
     <div class="project reveal">
-      <div class="project-meta">
-        <span class="project-status status-active"><span class="led"></span>Active</span>
-        <span class="project-year">2024</span>
+      <div class="project-side">
+        <div class="project-title">Cross-platform browser shell</div>
+        <span class="project-status">Active</span>
+        <span class="project-period">2024</span>
       </div>
       <div>
-        <div class="project-title">Cross-platform browser shell</div>
-        <p class="project-desc">A lightweight Rust/Dioxus browser using the system webview (wry) to target both desktop and Android from one codebase — tab management, URL normalization, and DuckDuckGo fallback routing.</p>
+        <p class="project-desc">A lightweight browser built in Rust with Dioxus, using the system webview to run from a single codebase on both desktop and Android.</p>
+        <p class="project-outcome">Includes tab management, URL normalization, and DuckDuckGo fallback search routing.</p>
         <div class="project-tags">
           <span class="tag">Rust</span>
           <span class="tag">Dioxus</span>
-          <span class="tag">wry</span>
         </div>
       </div>
     </div>
 
     <div class="project reveal">
-      <div class="project-meta">
-        <span class="project-status status-concept"><span class="led"></span>Concept</span>
-        <span class="project-year">Ongoing</span>
+      <div class="project-side">
+        <div class="project-title">Tegy Mobile</div>
+        <span class="project-status dim">Concept</span>
+        <span class="project-period">Ongoing</span>
       </div>
       <div>
-        <div class="project-title">Tegy Mobile</div>
-        <p class="project-desc">A surveillance/remote-control vehicle concept — wireless camera, night vision, electric drive, shock absorption — with autonomous navigation, GPS, and obstacle avoidance planned as future upgrades. The hardware side of the same "build the systems I wish existed" instinct.</p>
+        <p class="project-desc">A remote-controlled surveillance vehicle — wireless camera, night vision, and electric drive — currently in the hardware design phase.</p>
+        <p class="project-outcome">Planned upgrades include autonomous navigation, GPS, and obstacle avoidance.</p>
         <div class="project-tags">
           <span class="tag">Robotics</span>
           <span class="tag">Electronics</span>
@@ -644,111 +532,40 @@
 
   </section>
 
-  <section id="status">
-    <div class="module-label">04 · status</div>
-    <h2 class="section-title">Live systems</h2>
-    <div class="console reveal">
-      <div class="console-bar">
-        <span class="chip"></span><span class="chip"></span><span class="chip"></span>
-        <span class="title">techma@systems — status</span>
-      </div>
-      <div class="console-body">
-        <div class="console-row">
-          <span class="proc">sally_station</span>
-          <span class="project-status status-building"><span class="led"></span>building</span>
-          <span class="note">macro/protocol + mood engine in dev</span>
-        </div>
-        <div class="console-row">
-          <span class="proc">nnss_calabar</span>
-          <span class="project-status status-deployed"><span class="led"></span>deployed</span>
-          <span class="note">handed off, live at the school</span>
-        </div>
-        <div class="console-row">
-          <span class="proc">wenet</span>
-          <span class="project-status status-archived"><span class="led"></span>archived</span>
-          <span class="note">v2 prototype complete</span>
-        </div>
-        <div class="console-row">
-          <span class="proc">rust_browser</span>
-          <span class="project-status status-active"><span class="led"></span>active</span>
-          <span class="note">cross-platform shell, ongoing</span>
-        </div>
-        <div class="console-row">
-          <span class="proc">tegy_mobile</span>
-          <span class="project-status status-concept"><span class="led"></span>concept</span>
-          <span class="note">hardware design phase</span>
-        </div>
-      </div>
+  <section id="now">
+    <div class="eyebrow">Right now</div>
+    <h2 class="section-title">What I'm focused on.</h2>
+    <div class="now-card reveal">
+      <p><strong>Sally Station</strong> is my main project — I'm heads-down on the macro/protocol system and mood state machine that the rest of the assistant's personality will be built on.</p>
+      <p>Alongside that, I'm working through a structured <strong>cybersecurity and ethical hacking curriculum</strong>, because I want to build systems I can also defend.</p>
+      <p>I'm also open to full-stack, backend, or AI-systems roles where I can bring that same end-to-end ownership to a team's problems.</p>
     </div>
   </section>
 
   <section id="contact">
-    <div class="module-label">05 · contact</div>
-    <h2 class="section-title">Let's talk</h2>
-    <p style="color: var(--text-dim); max-width: 56ch; margin-bottom: 28px;">Open to full-stack, AI/ML, or systems-focused roles and collaborations. Reach out directly:</p>
-    <div class="contact-grid">
-      <a class="contact-card reveal" href="mailto:belovedbassey4@gmail.com">
-        <div class="k">Email</div>
-        <div class="v">belovedbassey4@gmail.com</div>
-      </a>
-      <a class="contact-card reveal" href="tel:+2347078287176">
-        <div class="k">Phone</div>
-        <div class="v">+234 707 828 7176</div>
-      </a>
-      <a class="contact-card reveal" href="https://github.com/techma2004" target="_blank" rel="noopener noreferrer">
-        <div class="k">GitHub</div>
-        <div class="v">github.com/techma2004</div>
-      </a>
-      <a class="contact-card reveal" href="mailto:belovedbassey4@gmail.com?subject=Let%27s%20work%20together">
-        <div class="k">Quick action</div>
-        <div class="v">Send a message →</div>
-      </a>
+    <div class="contact-inner">
+      <div class="contact-lead reveal">
+        <div class="eyebrow">Contact</div>
+        <h2 class="section-title" style="margin-bottom: 0;">Let's work together.</h2>
+        <p>I'm open to full-stack, AI/ML, or systems-focused roles and collaborations. The fastest way to reach me is email.</p>
+      </div>
+      <div class="contact-list reveal">
+        <a href="mailto:belovedbassey4@gmail.com"><span class="k">Email</span> belovedbassey4@gmail.com</a>
+        <a href="tel:+2347078287176"><span class="k">Phone</span> +234 707 828 7176</a>
+        <a href="https://github.com/techma2004" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span> github.com/techma2004</a>
+      </div>
     </div>
   </section>
 
 </main>
 
 <footer>
-  built by techma · Nigeria · <span id="year"></span>
+  Edima Bassey · Nigeria · <span id="year"></span>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Boot-sequence typing effect in hero eyebrow
-  (function() {
-    var target = document.getElementById('typeTarget');
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) return;
-    var lines = ['> whoami', '> edima bassey — techma', '> role: full-stack / ai systems / security', '> status: available'];
-    var lineIdx = 0, charIdx = 0;
-    var cursor = '<span class="cursor"></span>';
-
-    function type() {
-      if (lineIdx >= lines.length) {
-        setTimeout(function() {
-          lineIdx = 0; charIdx = 0;
-          type();
-        }, 3200);
-        return;
-      }
-      var line = lines[lineIdx];
-      target.innerHTML = line.slice(0, charIdx) + cursor;
-      if (charIdx < line.length) {
-        charIdx++;
-        setTimeout(type, 32);
-      } else {
-        setTimeout(function() {
-          lineIdx++;
-          charIdx = 0;
-          type();
-        }, 1100);
-      }
-    }
-    type();
-  })();
-
-  // Scroll reveal
   (function() {
     var items = document.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window)) {
@@ -762,7 +579,7 @@
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
     items.forEach(function(el) { io.observe(el); });
   })();
 </script>
