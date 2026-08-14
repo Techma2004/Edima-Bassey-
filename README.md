@@ -109,7 +109,7 @@ Remote controlled surveillance vehicle — wireless camera, night vision, electr
 - **Email:** belovedbassey4@gmail.com
 - **Phone:** +234 707 828 7176
 - **GitHub:** github.com/Techma2004
-- **Portfolio:** `[PORTFOLIO_URL]` — replace with `https://techma2004.github.io/Edima-Bassey-/` when Pages is live
+- **Portfolio:** `[https://techma2004.github.io/Edima-Bassey-/]` — replace with `https://techma2004.github.io/Edima-Bassey-/` when Pages is live
 
 ---
 
